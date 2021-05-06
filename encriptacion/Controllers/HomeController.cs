@@ -31,9 +31,9 @@ namespace encriptacion.Controllers
         {
             try
             {
-                var morse =
-                    new ToMorse();
-                captura.Salida = morse.Codificar(captura.Texto);
+                var morse = new ToMorse();
+                var octal = new ToOctal();
+                captura.Salida = $"{morse.Codificar(captura.Texto)}, {octal.Codificar(captura.Texto)}";
                 return View(captura);
             }
             catch

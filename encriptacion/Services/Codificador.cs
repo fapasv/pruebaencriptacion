@@ -30,4 +30,27 @@ namespace encriptacion.Services
             return sb.ToString();
         }
     }
+
+    public class ToOctal: ICodificador
+    {
+        public string Codificar(string mensaje)
+        {
+            return Salida(mensaje);
+        }
+
+        private string Salida(string mensaje)
+        {
+            var sb = new StringBuilder();
+            foreach (var letra in mensaje.ToUpper())
+            {
+                if (Octal.Codificacion.ContainsKey(letra))
+                {
+                    sb.Append(Octal.Codificacion[letra]);
+                }
+            }
+
+            return sb.ToString();
+
+        }
+    }
 }
